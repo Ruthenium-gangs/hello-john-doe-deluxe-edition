@@ -470,7 +470,14 @@ class Paths
 
 	#if MODS_ALLOWED
 	inline static public function mods(key:String = '') {
+		//sorry idk about compile frag sorry
+		#if (debug && macos)
+		return '../../../../../../../example_mods/' + key;
+		#elseif debug
+		return '../../../../example_mods/' + key;
+		#else
 		return 'mods/' + key;
+		#end
 	}
 
 	inline static public function modsFont(key:String) {
@@ -532,7 +539,13 @@ class Paths
 			if(FileSystem.exists(fileToCheck))
 				return fileToCheck;
 		}
+		#if (debug && macos)
+		return '../../../../../../../example_mods/' + key;
+		#elseif debug
+		return '../../../../example_mods/' + key;
+		#else
 		return 'mods/' + key;
+		#end
 	}
 	#end
 

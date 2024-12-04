@@ -4,7 +4,6 @@ import objects.SoundTray;
 import flixel.FlxBasic;
 import states.MainMenuState;
 import backend.Highscore;
-import states.TitleState;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.input.keyboard.FlxKey;
 import openfl.display.Sprite;

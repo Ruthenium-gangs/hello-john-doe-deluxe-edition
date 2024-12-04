@@ -89,10 +89,7 @@ class MainMenuState extends MusicBeatState
 		// Paths.clearStoredMemory();
 		// Paths.clearUnusedMemory();
 		//if(FlxG.sound.music == null) 
-			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
-
-
-			
+		FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 
 		#if MODS_ALLOWED
 		Mods.pushGlobalMods();
@@ -147,8 +144,6 @@ class MainMenuState extends MusicBeatState
 			menuItems.add(tex);
 		}
 
-
-
 		spawn();
 		changeItem();
 		super.create();
@@ -193,9 +188,11 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			// if (FlxG.keys.justPressed.T) {
-			// 	FlxG.switchState(new FreeplayState());
-			// }
+			#if debug
+			if (controls.justPressed('debug_2')) {
+				FlxG.switchState(new FreeplayState());
+			}
+			#end
 			if (controls.UI_UP_P || controls.UI_DOWN_P) changeItem(controls.UI_UP_P ? -1 : 1);
 
 			if (controls.ACCEPT)

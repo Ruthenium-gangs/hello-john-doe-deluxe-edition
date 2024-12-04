@@ -37,10 +37,11 @@ class Mods
 	inline public static function pushGlobalMods() // prob a better way to do this but idc
 	{
 		globalMods = [];
-		for(mod in parseList().enabled)
+		for(mod in parseList().all)
 		{
-			var pack:Dynamic = getPack(mod);
-			if(pack != null && pack.runsGlobally) globalMods.push(mod);
+			globalMods.push(mod);
+			//var pack:Dynamic = getPack(mod);
+			//if(pack != null && pack.runsGlobally) globalMods.push(mod);
 		}
 		return globalMods;
 	}
@@ -222,7 +223,7 @@ class Mods
 		Mods.currentModDirectory = '';
 		
 		#if MODS_ALLOWED
-		var list:Array<String> = Mods.parseList().enabled;
+		var list:Array<String> = Mods.parseList().all;
 		if(list != null && list[0] != null)
 			Mods.currentModDirectory = list[0];
 		#end

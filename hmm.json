@@ -36,14 +36,15 @@
       "version": null
     },
     {
-      "name": "hxCodec",
+      "name": "hxvlc",
       "type": "haxelib",
       "version": null
     },
     {
       "name": "SScript",
-      "type": "haxelib",
-      "version": null
+      "type": "git",
+      "ref": "8.1.6",
+      "url": "https://github.com/Oren-LuckyJackpots/SScript-For-Psych"
     },
     {
       "name": "hxcpp-debug-server",
