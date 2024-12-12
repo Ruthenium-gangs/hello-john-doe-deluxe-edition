@@ -32,9 +32,7 @@ import substates.GameOverSubstate;
 
 import psychlua.LuaUtils;
 import psychlua.LuaUtils.LuaTweenOptions;
-#if SScript
 import psychlua.HScript;
-#end
 import psychlua.DebugLuaText;
 import psychlua.ModchartSprite;
 

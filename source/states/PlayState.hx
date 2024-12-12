@@ -56,9 +56,7 @@ import psychlua.LuaUtils;
 import psychlua.HScript;
 #end
 
-#if SScript
 import tea.SScript;
-#end
 
 import objects.hud.*;
 
@@ -1616,7 +1614,7 @@ class PlayState extends MusicBeatState
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
 	var freezeCamera:Bool = false;
-	var allowDebugKeys:Bool = false;
+	var allowDebugKeys:Bool = true;
 
 	override public function update(elapsed:Float)
 	{

@@ -71,4 +71,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 
 using StringTools;
 using backend.FlxObjectTools;
+
+import hscriptBase.*;
+import hscriptBase.Expr;
 #end

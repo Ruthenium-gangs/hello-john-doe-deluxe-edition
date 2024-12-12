@@ -454,7 +454,6 @@ class HScript extends SScript
 	#if LUA_ALLOWED
 	public static function implement(funk:FunkinLua) {
 		funk.addLocalCallback("runHaxeCode", function(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array<Dynamic> = null):Dynamic {
-			#if SScript
 			initHaxeModuleCode(funk, codeToRun, varsToBring);
 			final retVal:TeaCall = funk.hscript.executeCode(funcToRun, funcArgs);
 			if (retVal != null) {
@@ -471,14 +470,10 @@ class HScript extends SScript
 			{
 				return funk.hscript.returnValue;
 			}
-			#else
-			FunkinLua.luaTrace("runHaxeCode: HScript isn't supported on this platform!", false, false, FlxColor.RED);
-			#end
 			return null;
 		});
 		
 		funk.addLocalCallback("runHaxeFunction", function(funcToRun:String, ?funcArgs:Array<Dynamic> = null) {
-			#if SScript
 			var callValue = funk.hscript.executeFunction(funcToRun, funcArgs);
 			if (!callValue.succeeded)
 			{
@@ -489,9 +484,6 @@ class HScript extends SScript
 			}
 			else
 				return callValue.returnValue;
-			#else
-			FunkinLua.luaTrace("runHaxeFunction: HScript isn't supported on this platform!", false, false, FlxColor.RED);
-			#end
 		});
 		// This function is unnecessary because import already exists in SScript as a native feature
 		funk.addLocalCallback("addHaxeLibrary", function(libName:String, ?libPackage:String = '') {
@@ -505,12 +497,9 @@ class HScript extends SScript
 			if (c == null)
 				c = Type.resolveEnum(str + libName);
 
-			#if SScript
 			if (c != null)
 				SScript.globalVariables[libName] = c;
-			#end
 
-			#if SScript
 			if (funk.hscript != null)
 			{
 				try {
@@ -521,9 +510,6 @@ class HScript extends SScript
 					FunkinLua.luaTrace(funk.hscript.origin + ":" + funk.lastCalledFunction + " - " + e, false, false, FlxColor.RED);
 				}
 			}
-			#else
-			FunkinLua.luaTrace("addHaxeLibrary: HScript isn't supported on this platform!", false, false, FlxColor.RED);
-			#end
 		});
 	}
 	#end
