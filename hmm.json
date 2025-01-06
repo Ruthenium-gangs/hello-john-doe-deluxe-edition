@@ -41,12 +41,6 @@
       "version": null
     },
     {
-      "name": "SScript",
-      "type": "git",
-      "ref": "8.1.6",
-      "url": "https://github.com/Oren-LuckyJackpots/SScript-For-Psych"
-    },
-    {
       "name": "hxcpp-debug-server",
       "type": "haxelib",
       "version": null
